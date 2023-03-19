@@ -1,6 +1,6 @@
 import { FastifyRequest } from "fastify";
 import { Iidparams } from "../utils/id.type";
-import { ICreateTask} from "./task.schema";
+import { ICreateTask, IUpdateTask} from "./task.schema";
 import { createTask, deleteTask, getTasks, updateTask } from "./task.service";
 
 export const createTaskHandler = async (req: FastifyRequest <{
@@ -28,7 +28,7 @@ export const deleteTaskHandler = async (req: FastifyRequest <{
 }
 
 export const updateTaskHandler = async(req: FastifyRequest <{
-  Body: ICreateTask
+  Body: IUpdateTask
   Params: Iidparams
 }>)=>{
   const {id} = req.params

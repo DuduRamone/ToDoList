@@ -22,7 +22,7 @@ export const taskRoutes = async (server: FastifyInstance) => {
 
   server.put("/update/:id", {
     schema: {
-        body: $ref("createTaskSchema"),
+        body: $ref("updateTaskSchema"),
         response: {
           201: $ref("createTaskResponseSchema"),
         },
