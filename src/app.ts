@@ -8,7 +8,7 @@ const server = fastify() // colocar o server em uma variavel
 async function main() {
   await server.register(cors, {
     origin: "*",
-    methods: ["GET"],
+    methods: ["GET", "DELETE", "POST"],
     optionsSuccessStatus: 200,
   })
 
