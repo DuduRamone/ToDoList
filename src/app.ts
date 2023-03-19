@@ -1,13 +1,20 @@
 import fastify from "fastify" // importa o fastify
 import { taskRoutes } from "./modules/task.route"
 import { taskSchema } from "./modules/task.schema"
+import cors from "@fastify/cors"
 
 const server = fastify() // colocar o server em uma variavel
 
 async function main() {
+  await server.register(cors, {
+    origin: "*",
+    methods: ["GET"],
+    optionsSuccessStatus: 200,
+  })
+
   server.register(taskRoutes, { prefix: "/api/task" })
 
-  for(const schema of [...taskSchema]){
+  for (const schema of [...taskSchema]) {
     server.addSchema(schema)
   }
 
